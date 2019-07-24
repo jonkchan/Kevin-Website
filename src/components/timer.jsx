@@ -3,30 +3,29 @@ import moment from "moment";
 
 class Timer extends Component {
   state = {
-    remainingTime: ""
+    duration: ""
   };
 
   componentDidMount() {
-    this.interval = setInterval(this.updateRemainingTime, 1000);
+    this.interval = setInterval(this.updateRemainingTime, 100);
   }
 
   updateRemainingTime = () => {
     let now = moment(new Date());
     let end = moment("2019-08-17");
-    let duration = moment.duration(now.diff(end)).asHours();
-    let days;
-    duration <= 0 ? (days = (duration / 24) * -1) : (days = 0);
+    // let duration = moment.duration(now.diff(end)).asHours();
+    let duration = now.diff(end, "minutes") * -1;
 
     this.setState({
-      remainingTime: days
+      duration
     });
   };
 
   render() {
     return (
       <div>
-        <h1>Remaining Time to Complete Challenge:</h1>
-        <h1>{this.state.remainingTime}</h1>
+        <h1>Time Remaining to Complete Challenge:</h1>
+        <h1>Minutes: {this.state.duration}</h1>
       </div>
     );
   }
