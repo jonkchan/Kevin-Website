@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "./logo.svg";
+// import logo from "./logo.svg";
 import Timer from "./components/timer";
 import Progress from "./components/progress";
 import "./App.css";
