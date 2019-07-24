@@ -1,6 +1,5 @@
 import React from "react";
 import logo from "./logo.svg";
-import Twitch from "./components/twitch";
 import Timer from "./components/timer";
 import Progress from "./components/progress";
 import "./App.css";
