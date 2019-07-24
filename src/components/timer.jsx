@@ -3,7 +3,10 @@ import moment from "moment";
 
 class Timer extends Component {
   state = {
-    duration: ""
+    dateDuration: "",
+    hourDuration: "",
+    minDuration: "",
+    secDuration: ""
   };
 
   componentDidMount() {
@@ -14,10 +17,16 @@ class Timer extends Component {
     let now = moment(new Date());
     let end = moment("2019-08-17");
     // let duration = moment.duration(now.diff(end)).asHours();
-    let duration = now.diff(end, "minutes") * -1;
+    let dateDuration = now.diff(end, "days") * -1;
+    let hourDuration = now.diff(end, "hours") * -1;
+    let minDuration = now.diff(end, "minutes") * -1;
+    let secDuration = now.diff(end, "seconds") * -1;
 
     this.setState({
-      duration
+      dateDuration,
+      hourDuration,
+      minDuration,
+      secDuration
     });
   };
 
@@ -25,7 +34,10 @@ class Timer extends Component {
     return (
       <div>
         <h1>Time Remaining to Complete Challenge:</h1>
-        <h1>Minutes: {this.state.duration}</h1>
+        <h3>
+          {this.state.dateDuration} Days | {this.state.hourDuration} Hours |{" "}
+          {this.state.minDuration} Mins | {this.state.secDuration} Seconds
+        </h3>
       </div>
     );
   }
