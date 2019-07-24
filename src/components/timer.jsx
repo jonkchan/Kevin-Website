@@ -7,16 +7,18 @@ class Timer extends Component {
   };
 
   componentDidMount() {
-    this.interval = setInterval(this.updateRemainingTime, 100);
+    this.interval = setInterval(this.updateRemainingTime, 1000);
   }
 
   updateRemainingTime = () => {
     let now = moment(new Date());
     let end = moment("2019-08-17");
-    let duration = moment.duration(now.diff(end));
-    let hours = duration.asHours();
+    let duration = moment.duration(now.diff(end)).asHours();
+    let days;
+    duration <= 0 ? (days = duration / 24) : (days = 0);
+
     this.setState({
-      remainingTime: hours
+      remainingTime: days
     });
   };
 
