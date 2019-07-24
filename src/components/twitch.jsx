@@ -11,7 +11,7 @@ class Twitch extends Component {
           new Twitch.Embed("twitch-embed", {
             width: 854,
             height: 480,
-            channel: "monstercat"
+            channel: "icechicken123"
           });
         </script> */}
       </React.Fragment>
