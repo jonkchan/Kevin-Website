@@ -15,7 +15,7 @@ class Timer extends Component {
     let end = moment("2019-08-17");
     let duration = moment.duration(now.diff(end)).asHours();
     let days;
-    duration <= 0 ? (days = duration / 24) : (days = 0);
+    duration <= 0 ? (days = (duration / 24) * -1) : (days = 0);
 
     this.setState({
       remainingTime: days
